@@ -85,8 +85,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------------------------------------------------
     const diyaSimulator = new DiyaFlameSimulator('diya-flame-canvas');
     const lightDiyaBtn = document.getElementById('light-diya-btn');
+    const diyaMuteBtn = document.getElementById('diya-mute-btn');
     const diyaWrapper = document.getElementById('interactive-diya-wrapper');
     const diyaQuote = document.getElementById('diya-reveal-quote');
+
+    function syncDiyaMuteButton() {
+        if (!diyaMuteBtn || !window.diyaSongPlayer) return;
+        const isMuted = window.diyaSongPlayer.muted;
+        diyaMuteBtn.innerHTML = `<span>${isMuted ? '🔇' : '🔊'}</span>`;
+        diyaMuteBtn.title = isMuted ? 'Unmute the diya song' : 'Mute the diya song';
+        diyaMuteBtn.setAttribute('aria-label', isMuted ? 'Unmute diya song' : 'Mute diya song');
+        diyaMuteBtn.classList.toggle('muted', isMuted);
+    }
 
     function triggerDiyaLighting() {
         diyaSimulator.light();
@@ -116,6 +126,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (lightDiyaBtn) lightDiyaBtn.addEventListener('click', triggerDiyaLighting);
     if (diyaWrapper) diyaWrapper.addEventListener('click', triggerDiyaLighting);
+
+    if (diyaMuteBtn) {
+        diyaMuteBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            if (!window.diyaSongPlayer) return;
+            window.diyaSongPlayer.muted = !window.diyaSongPlayer.muted;
+            syncDiyaMuteButton();
+        });
+        syncDiyaMuteButton();
+    }
 
     // -------------------------------------------------------------------------
     // 4. Cinematic Film Mode: Full Video & Music Synchronization
