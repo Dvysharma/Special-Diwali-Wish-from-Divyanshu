@@ -291,17 +291,33 @@ body {
 
     .story-chapter {
         grid-template-columns: 1fr;
+        grid-template-areas:
+            "diya-box"
+            "visual"
+            "content";
         padding-left: 0;
         padding-right: 0;
+        gap: 0.9rem;
+    }
+
+    .diya-interactive-box {
+        width: min(100%, 360px);
+        max-width: 100%;
+        margin: 0 auto 0.15rem;
+        min-height: 210px;
+        padding: 1rem 0.9rem;
     }
 
     .chapter-visual,
     .chapter-img {
-        min-height: 260px;
+        width: 100%;
+        min-height: 240px;
         border-radius: 18px;
     }
 
     .chapter-content {
+        width: 100%;
+        max-width: 100%;
         gap: 0.9rem;
     }
 
