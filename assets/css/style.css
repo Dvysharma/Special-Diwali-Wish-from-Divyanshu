@@ -555,10 +555,10 @@ body {
     margin: 0 auto;
     padding: 0 20px 30px;
     display: grid;
-    grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
+    grid-template-columns: 1fr;
     grid-template-areas:
-        "diya-box diya-box"
-        "visual content";
+        "diya-box"
+        "content";
     align-items: center;
     gap: clamp(1.35rem, 2.8vw, 2.8rem);
     position: relative;
@@ -572,16 +572,7 @@ body {
 }
 
 .chapter-visual {
-    grid-area: visual;
-    position: relative;
-    width: min(100%, 560px);
-    min-height: 320px;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-card);
-    border: 1px solid rgba(255, 215, 0, 0.2);
-    background: rgba(12, 14, 24, 0.8);
-    justify-self: center;
+    display: none;
 }
 
 .chapter-img {
@@ -627,7 +618,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
-    width: min(100%, 500px);
+    width: min(100%, 760px);
     justify-self: center;
 }
 
