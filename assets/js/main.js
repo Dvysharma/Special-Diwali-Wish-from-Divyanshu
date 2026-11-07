@@ -436,9 +436,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             ctx.fillStyle = '#ffffff';
             ctx.font = '300 28px sans-serif';
-            ctx.fillText('Some people make ordinary days a little brighter.', 540, 750);
-            ctx.fillText('Some people make difficult things a little easier.', 540, 805);
-            ctx.fillText('And some people deserve a little extra appreciation.', 540, 860);
+            ctx.fillText('Some people don\'t just teach you how to work...', 540, 750);
+            ctx.fillText('They make you believe you can.', 540, 805);
 
             ctx.fillStyle = '#ffd200';
             ctx.font = '600 32px Georgia, serif';
